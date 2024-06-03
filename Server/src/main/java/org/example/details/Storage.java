@@ -1,9 +1,9 @@
 package org.example.details;
 
 import org.example.island.object.StudyGroup;
-
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Инкапсулированный класс для хранения коллекции и работы с ней
@@ -18,28 +18,26 @@ public class Storage {
         this.date = getTime();
     }
 
-    /**
-     * Метод инициализирует коллекцию элементов и коллекцию её ключей с доступом по id элемента
-     * @param map
-     */
-    public void mapInit(LinkedHashMap<Integer, StudyGroup> map){
-        List<StudyGroup> list = new ArrayList<>(map.values());
-        Collections.sort(list);
-        for(Integer key : map.keySet()){
-            this.mapKey.put(map.get(key).getId(), key);
-        }
-        for(StudyGroup el : list){
-            this.map.put(findKey(el.getId()), el);
-        }
-    }
-    @Deprecated
+//    /**
+//     * Метод инициализирует коллекцию элементов и коллекцию её ключей с доступом по id элемента
+//     * @param map
+//     */
+//    public void mapInit(LinkedHashMap<Integer, StudyGroup> map){
+//        List<StudyGroup> list = new ArrayList<>(map.values());
+//        Collections.sort(list);
+//        for(Integer key : map.keySet()){
+//            this.mapKey.put(map.get(key).getId(), key);
+//        }
+//        for(StudyGroup el : list){
+//            this.map.put(findKey(el.getId()), el);
+//        }
+//    }
     public void sort(){
-        List<StudyGroup> list = new ArrayList<>(map.values());
-        Collections.sort(list);
-        map.clear();
-        for(StudyGroup el : list){
-            this.map.put(findKey(el.getId()), el);
-        }
+        map = map.entrySet().stream().sorted(Map.Entry.comparingByValue()).collect(Collectors.toMap(
+                Map.Entry::getKey,
+                Map.Entry::getValue,
+                (e1, e2) -> e1,
+                LinkedHashMap::new));
     }
 
 
@@ -47,9 +45,9 @@ public class Storage {
         return map.values();
     }
 
-    public LinkedHashMap<Integer, StudyGroup> getMap(){
-        return map;
-    }
+//    public LinkedHashMap<Integer, StudyGroup> getMap(){
+//        return map;
+//    }
 
     public Set<Integer> getKeys(){
         return map.keySet();
@@ -91,24 +89,32 @@ public class Storage {
         }
         return null;
     }
-    public void putMapKeys(int key, long id){
-        mapKey.put(id, key);
-    }
-    /**
-     * Взаимодействие команды update_id с коллекцией
-     * @param id
-     * @param el
-     */
-    public String replaceElement(long id, StudyGroup el){
-        if(map.replace(mapKey.get(id), getObj(id), el)){
-            sort();
-            return ("замена прошла успешно, " + map.get(mapKey.get(id)));
-        }
-        else{
-            return ("Замена не удалась, что-то пошло не так");
-        }
-
-    }
+//    public void putMapKeys(int key, long id){
+//        mapKey.put(id, key);
+//        List<StudyGroup> list = new ArrayList<>(map.values());
+//        Collections.sort(list);
+//        for(Integer keyEl : map.keySet()){
+//            this.mapKey.put(map.get(key).getId(), key);
+//        }
+//        for(StudyGroup el : list){
+//            this.map.put(findKey(el.getId()), el);
+//        }
+//    }
+//    /**
+//     * Взаимодействие команды update_id с коллекцией
+//     * @param id
+//     * @param el
+//     */
+//    public String replaceElement(long id, StudyGroup el){
+//        if(map.replace(mapKey.get(id), getObj(id), el)){
+//            sort();
+//            return ("замена прошла успешно, " + map.get(mapKey.get(id)));
+//        }
+//        else{
+//            return ("Замена не удалась, что-то пошло не так");
+//        }
+//
+//    }
 
     /**
      * Взаимодействие команды clear с коллекцией
@@ -123,21 +129,21 @@ public class Storage {
         }
 
     }
-    /**
-     * Взаимодействие команды remove_key с коллекцией
-     * @param key
-     */
-    public boolean removeElement(int key){
-        if(map.containsKey(key)){
-            map.remove(key);
-            return true;
-        }
-        else{
-            return false;
-        }
-
-
-    }
+//    /**
+//     * Взаимодействие команды remove_key с коллекцией
+//     * @param key
+//     */
+//    public boolean removeElement(int key){
+//        if(map.containsKey(key)){
+//            map.remove(key);
+//            return true;
+//        }
+//        else{
+//            return false;
+//        }
+//
+//
+//    }
 
     /**
      * Метод для фиксирования времени создания коллекции

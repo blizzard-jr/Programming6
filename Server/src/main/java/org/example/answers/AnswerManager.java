@@ -3,46 +3,34 @@ package org.example.answers;
 import org.example.island.commands.Message;
 import org.example.island.details.Serialization;
 import org.example.requests.RequestsManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class AnswerManager {
-    private Socket socket;
     private OutputStream ou;
+    private final Logger logger = LoggerFactory.getLogger(AnswerManager.class);
 
-    public AnswerManager(Socket socket){
-        this.socket = socket;
+    public void flush(Message msg, Socket socket){
         try {
             ou = socket.getOutputStream();
         } catch (IOException e) {
-            RequestsManager.manager.answerForming(e.getMessage());
+            logger.error("Не получилось достать поток из клиента");
         }
-    }
-
-    public void answerForming(Object data){
-        Message message = new Message();
-        message.setArguments(data);
-        flush(message);
-    }
-        public void answerForming(Object[] data){
-        Message msg = new Message();
-        msg.setArguments(data);
-        flush(msg);
-    }
-    public void flush(Message msg){
+        logger.info("Отправка ответа пользователю");
         byte[] data = Serialization.SerializeObject(msg);
-        byte[] finalData = new byte[data.length + 1];
-        System.arraycopy(data, 0, finalData, 0, data.length);
-        finalData[data.length] = (byte) 254;
         try {
-            if(finalData != null){
-                ou.write(finalData);
+            if(data != null){
+                ou.write(data);
             }
         } catch (IOException e) {
-            RequestsManager.manager.answerForming(e.getMessage());
+            logger.error("Не получилось отправить сообщение клиенту");
         }
     }
 }

@@ -3,6 +3,7 @@ package org.example;
 
 import org.example.exceptions.NoSuchCommandException;
 import org.example.island.commands.*;
+import org.example.island.object.StudyGroup;
 
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.Map;
 public class CommandsManager {
     private Map<String, Command> commandRegistry = new HashMap<>();
     private ArrayList<String> commandList = new ArrayList<>();
+    private InputProcess inputProcess = new InputProcess();
 
     /**
      * Конструктор инициализирующий все команды приложения
@@ -34,7 +36,6 @@ public class CommandsManager {
         addCommand(new Filter_less_than_form_of_education());
         addCommand(new Exit());
         addCommand(new Help());
-        addCommand(new Message());
     }
     public void addCommand(Command cmd){
         commandRegistry.put(cmd.getName(), cmd);
@@ -42,9 +43,16 @@ public class CommandsManager {
     public Command commandForming(String s) throws NoSuchCommandException, org.example.island.details.exceptions.NoSuchCommandException {
         String[] str = parseCommand(s);
         Command command = getCommand(str[0].toLowerCase());
+        command.clearArg();
         commandList.add(str[0]);
-        String[] args = Arrays.copyOfRange(str, 1, str.length);
-        command = command.clientExecute(args);
+        Object[] args = Arrays.copyOfRange(str, 1, str.length);
+        if(command.getClass() == InsertNull.class || command.getClass() == UpdateId.class || command.getClass() == Remove_greater.class){
+            Object[] args1 = UserInterface.console.objectIdentity((String[]) args);
+            command = command.clientExecute(args1);
+        }
+        else{
+            command = command.clientExecute(args);
+        }
         return command;
     }
     /**

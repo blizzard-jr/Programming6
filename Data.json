@@ -1,28 +1,28 @@
 {
-  "676" : {
-    "name" : "P676",
-    "studentsCount" : 19,
-    "shouldBeExpelled" : 9,
+  "333" : {
+    "name" : "B333",
+    "studentsCount" : 11,
+    "shouldBeExpelled" : 3,
     "coordinates" : {
-      "x" : -234.0,
-      "y" : -1.0
+      "x" : 3.0,
+      "y" : 3.0
     },
     "formOfEducation" : "FULL_TIME_EDUCATION",
-    "semesterEnum" : "FOURTH",
+    "semesterEnum" : "FIRST",
     "groupAdmin" : {
-      "name" : "Дарья",
-      "height" : 89.0,
-      "weight" : 52.0,
-      "hairColor" : "ORANGE",
+      "name" : "3",
+      "height" : 3.0,
+      "weight" : 3.0,
+      "hairColor" : "BLACK",
       "location" : {
-        "x" : 13,
-        "y" : 11,
-        "z" : -645,
-        "name" : "Кронва"
+        "x" : 3,
+        "y" : 3,
+        "z" : 3,
+        "name" : "3"
       }
     },
-    "creationDate" : "04-05-2024-21:39:06",
-    "id" : 74
+    "creationDate" : "18-05-2024-19:38:04",
+    "id" : 926
   },
   "476" : {
     "name" : "J324",
@@ -48,5 +48,130 @@
     },
     "creationDate" : "04-05-2024-21:39:06",
     "id" : 688
+  },
+  "10" : {
+    "name" : "L000",
+    "studentsCount" : 11,
+    "shouldBeExpelled" : 1,
+    "coordinates" : {
+      "x" : 0.0,
+      "y" : 0.0
+    },
+    "formOfEducation" : "FULL_TIME_EDUCATION",
+    "semesterEnum" : "FIFTH",
+    "groupAdmin" : {
+      "name" : "0",
+      "height" : 1.0,
+      "weight" : 1.0,
+      "hairColor" : "WHITE",
+      "location" : {
+        "x" : 0,
+        "y" : 0,
+        "z" : 0,
+        "name" : "0"
+      }
+    },
+    "creationDate" : "18-05-2024-19:37:22",
+    "id" : 979
+  },
+  "111" : {
+    "name" : "P111",
+    "studentsCount" : 11,
+    "shouldBeExpelled" : 1,
+    "coordinates" : {
+      "x" : 45.0,
+      "y" : 2.0
+    },
+    "formOfEducation" : "FULL_TIME_EDUCATION",
+    "semesterEnum" : "FOURTH",
+    "groupAdmin" : {
+      "name" : "3",
+      "height" : 4.0,
+      "weight" : 5.0,
+      "hairColor" : "GREEN",
+      "location" : {
+        "x" : 9,
+        "y" : 9,
+        "z" : 9,
+        "name" : "9"
+      }
+    },
+    "creationDate" : "17-05-2024-19:13:47",
+    "id" : 428
+  },
+  "676" : {
+    "name" : "P676",
+    "studentsCount" : 19,
+    "shouldBeExpelled" : 9,
+    "coordinates" : {
+      "x" : -234.0,
+      "y" : -1.0
+    },
+    "formOfEducation" : "FULL_TIME_EDUCATION",
+    "semesterEnum" : "FOURTH",
+    "groupAdmin" : {
+      "name" : "Дарья",
+      "height" : 89.0,
+      "weight" : 52.0,
+      "hairColor" : "ORANGE",
+      "location" : {
+        "x" : 13,
+        "y" : 11,
+        "z" : -645,
+        "name" : "Кронва"
+      }
+    },
+    "creationDate" : "04-05-2024-21:39:06",
+    "id" : 74
+  },
+  "771" : {
+    "name" : "R777",
+    "studentsCount" : 77,
+    "shouldBeExpelled" : 1,
+    "coordinates" : {
+      "x" : 77.0,
+      "y" : 77.0
+    },
+    "formOfEducation" : "FULL_TIME_EDUCATION",
+    "semesterEnum" : "FIFTH",
+    "groupAdmin" : {
+      "name" : "77",
+      "height" : 77.0,
+      "weight" : 77.0,
+      "hairColor" : "WHITE",
+      "location" : {
+        "x" : 77,
+        "y" : 77,
+        "z" : 77,
+        "name" : "77"
+      }
+    },
+    "creationDate" : "29-05-2024-00:32:31",
+    "id" : 584
+  },
+  "444" : {
+    "name" : "U444",
+    "studentsCount" : 44,
+    "shouldBeExpelled" : 4,
+    "coordinates" : {
+      "x" : 4.0,
+      "y" : 4.0
+    },
+    "formOfEducation" : "EVENING_CLASSES",
+    "semesterEnum" : "FIFTH",
+    "groupAdmin" : {
+      "name" : "4",
+      "height" : 4.0,
+      "weight" : 4.0,
+      "hairColor" : "WHITE",
+      "location" : {
+        "x" : 4,
+        "y" : 4,
+        "z" : 4,
+        "name" : "4"
+      }
+    },
+    "creationDate" : "18-05-2024-19:38:45",
+    "id" : 691
   }
 }
